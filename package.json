@@ -13,7 +13,6 @@
     "type": "git",
     "url": "git+https://github.com/wearzdk/eslint-config-prettier.git"
   },
-  "funding": "https://github.com/sponsors/sxzz",
   "files": [
     "dist"
   ],

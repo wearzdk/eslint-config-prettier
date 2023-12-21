@@ -1,13 +1,11 @@
-# @sxzz/eslint-config [![npm](https://img.shields.io/npm/v/@sxzz/eslint-config.svg)](https://npmjs.com/package/@sxzz/eslint-config)
+# @wearzdk/eslint-config-prettier [![npm](https://img.shields.io/npm/v/@wearzdk/eslint-config-prettier.svg)](https://npmjs.com/package/@wearzdk/eslint-config-prettier)
 
-Flat ESLint config for JavaScript, TypeScript, Vue 2, Vue 3, Prettier.
-
-[Legacy Version](https://github.com/sxzz/eslint-config-legacy)
+Flat ESLint config for JavaScript, TypeScript, React, Prettier.
 
 ## Features
 
 - Format with Prettier.
-- Designed to work with TypeScript, Vue 2 and 3 out-of-box.
+- Designed to work with TypeScript, React out-of-box.
 - Support JSON(5), YAML, Markdown...
 - Sort imports, `package.json`, `tsconfig.json`...
 - [ESLint Flat config](https://eslint.org/docs/latest/use/configure/configuration-files-new), compose easily!
@@ -16,7 +14,7 @@ Flat ESLint config for JavaScript, TypeScript, Vue 2, Vue 3, Prettier.
 ## Install
 
 ```bash
-npm i -D @sxzz/eslint-config
+npm i -D @wearzdk/eslint-config-prettier
 ```
 
 Require Node.js >= 16.14.
@@ -25,21 +23,21 @@ Require Node.js >= 16.14.
 
 ```js
 // eslint.config.js
-import { all } from '@sxzz/eslint-config'
+import { all } from "@wearzdk/eslint-config-prettier";
 
-export default all
+export default all;
 ```
 
 ### Custom Config
 
 ```js
-import { sxzz } from '@sxzz/eslint-config'
-export default sxzz(
+import { wearzdk } from "@wearzdk/eslint-config-prettier";
+export default wearzdk(
   [
     /* your custom config */
   ],
   { vue: true, prettier: true, markdown: true, unocss: false },
-)
+);
 ```
 
 ### VSCode
@@ -50,23 +48,9 @@ export default sxzz(
 }
 ```
 
-## Comparing to [`@antfu/eslint-config`](https://github.com/antfu/eslint-config)
-
-Most of the rules are the same, but there are some differences:
-
-- Use Prettier instead of [ESLint Stylistic](https://github.com/eslint-stylistic/eslint-stylistic).
-- Support both Vue 2 and Vue 3.
-- Support Vue Reactivity Transform.
-- More stricter rules.
-
-## Sponsors
-
-<p align="center">
-  <a href="https://cdn.jsdelivr.net/gh/sxzz/sponsors/sponsors.svg">
-    <img src='https://cdn.jsdelivr.net/gh/sxzz/sponsors/sponsors.svg'/>
-  </a>
-</p>
+## Comparing to [`@sxzz/eslint-config`](https://github.com/sxzz/eslint-config)
+Add `React` support
 
 ## License
 
-[MIT](./LICENSE) License © 2021-PRESENT [三咲智子](https://github.com/sxzz)
+[MIT](./LICENSE)
