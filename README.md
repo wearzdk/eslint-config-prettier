@@ -36,7 +36,7 @@ export default wearzdk(
   [
     /* your custom config */
   ],
-  { vue: true, prettier: true, markdown: true, unocss: false },
+  { react: true, prettier: true, markdown: true, unocss: false },
 );
 ```
 
@@ -49,7 +49,8 @@ export default wearzdk(
 ```
 
 ## Comparing to [`@sxzz/eslint-config`](https://github.com/sxzz/eslint-config)
-Add `React` support
+Add React support
+Remove Vue support
 
 ## License
 

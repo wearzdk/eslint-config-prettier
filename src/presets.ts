@@ -7,6 +7,7 @@ import {
   jsonc,
   markdown,
   prettier,
+  react,
   sortKeys,
   sortPackageJson,
   sortTsconfig,
@@ -37,6 +38,7 @@ export const all = [
   ...sortKeys,
   ...unocss,
   ...prettier,
+  ...react,
 ];
 
 export function wearzdk(
@@ -46,12 +48,14 @@ export function wearzdk(
     markdown: enableMarkdown = true,
     sortKeys: enableSortKeys = true,
     unocss: enableUnocss = hasUnocss,
+    react: enableReact = true,
   }: Partial<{
     vue: boolean;
     prettier: boolean;
     markdown: boolean;
     unocss: boolean;
     sortKeys: boolean;
+    react: boolean;
   }> = {},
 ): FlatESLintConfigItem[] {
   const configs = [...basic, ...yml, ...presetJsonc];
@@ -69,6 +73,9 @@ export function wearzdk(
   }
   if (Object.keys(config).length > 0) {
     configs.push(...(Array.isArray(config) ? config : [config]));
+  }
+  if (enableReact) {
+    configs.push(...react);
   }
   return configs;
 }

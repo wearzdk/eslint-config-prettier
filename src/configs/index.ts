@@ -11,3 +11,4 @@ export * from "./typescript";
 export * from "./unicorn";
 export * from "./unocss";
 export * from "./yml";
+export * from "./react";
