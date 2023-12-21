@@ -1,4 +1,4 @@
-import { hasUnocss, hasVue } from './env'
+import { hasUnocss } from "./env";
 import {
   comments,
   ignores,
@@ -13,10 +13,9 @@ import {
   typescript,
   unicorn,
   unocss,
-  vue,
   yml,
-} from './configs'
-import type { FlatESLintConfigItem } from 'eslint-define-config'
+} from "./configs";
+import type { FlatESLintConfigItem } from "eslint-define-config";
 
 export const presetJavaScript = [
   ...ignores,
@@ -24,57 +23,52 @@ export const presetJavaScript = [
   ...comments,
   ...imports,
   ...unicorn,
-]
+];
 
-export const presetJsonc = [...jsonc, ...sortPackageJson, ...sortTsconfig]
-export const presetLangsExtensions = [...markdown, ...yml, ...presetJsonc]
+export const presetJsonc = [...jsonc, ...sortPackageJson, ...sortTsconfig];
+export const presetLangsExtensions = [...markdown, ...yml, ...presetJsonc];
 
-export const basic = [...presetJavaScript, ...typescript]
-export { basic as presetBasic }
+export const basic = [...presetJavaScript, ...typescript];
+export { basic as presetBasic };
 
 export const all = [
   ...basic,
   ...presetLangsExtensions,
   ...sortKeys,
-  ...vue,
   ...unocss,
   ...prettier,
-]
+];
 
-export function sxzz(
+export function wearzdk(
   config: FlatESLintConfigItem | FlatESLintConfigItem[] = [],
   {
-    vue: enableVue = hasVue,
     prettier: enablePrettier = true,
     markdown: enableMarkdown = true,
     sortKeys: enableSortKeys = true,
     unocss: enableUnocss = hasUnocss,
   }: Partial<{
-    vue: boolean
-    prettier: boolean
-    markdown: boolean
-    unocss: boolean
-    sortKeys: boolean
+    vue: boolean;
+    prettier: boolean;
+    markdown: boolean;
+    unocss: boolean;
+    sortKeys: boolean;
   }> = {},
 ): FlatESLintConfigItem[] {
-  const configs = [...basic, ...yml, ...presetJsonc]
+  const configs = [...basic, ...yml, ...presetJsonc];
   if (enableSortKeys) {
-    configs.push(...sortKeys)
-  }
-  if (enableVue) {
-    configs.push(...vue)
+    configs.push(...sortKeys);
   }
   if (enableMarkdown) {
-    configs.push(...markdown)
+    configs.push(...markdown);
   }
   if (enableUnocss) {
-    configs.push(...unocss)
+    configs.push(...unocss);
   }
   if (enablePrettier) {
-    configs.push(...prettier)
+    configs.push(...prettier);
   }
   if (Object.keys(config).length > 0) {
-    configs.push(...(Array.isArray(config) ? config : [config]))
+    configs.push(...(Array.isArray(config) ? config : [config]));
   }
-  return configs
+  return configs;
 }
