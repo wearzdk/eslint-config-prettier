@@ -22,7 +22,6 @@ export const react: FlatESLintConfigItem[] = [
     rules: {
       ...pluginReact.configs.recommended.rules,
       ...pluginReactHooks.configs.recommended.rules,
-      ...pluginReactRefresh.configs.recommended.rules,
 
       "react/jsx-boolean-value": ["error", "never"],
       "react/jsx-filename-extension": [
@@ -35,6 +34,7 @@ export const react: FlatESLintConfigItem[] = [
       "react/jsx-props-no-multi-spaces": "error",
       "react/jsx-sort-props": "error",
       "react/no-invalid-html-attribute": "error",
+      "react/prop-type": "off",
       "react/self-closing-comp": "error",
 
       ...(isPackageExists("react") ? {} : { "react/jsx-no-undef": "off" }),
