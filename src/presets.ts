@@ -50,7 +50,6 @@ export function wearzdk(
     unocss: enableUnocss = hasUnocss,
     react: enableReact = true,
   }: Partial<{
-    vue: boolean;
     prettier: boolean;
     markdown: boolean;
     unocss: boolean;
@@ -71,11 +70,11 @@ export function wearzdk(
   if (enablePrettier) {
     configs.push(...prettier);
   }
-  if (Object.keys(config).length > 0) {
-    configs.push(...(Array.isArray(config) ? config : [config]));
-  }
   if (enableReact) {
     configs.push(...react);
+  }
+  if (Object.keys(config).length > 0) {
+    configs.push(...(Array.isArray(config) ? config : [config]));
   }
   return configs;
 }
