@@ -1,6 +1,6 @@
 {
   "name": "@wearzdk/eslint-config-prettier",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "packageManager": "pnpm@8.15.6",
   "description": "ESLint config for React projects with Prettier",
   "type": "module",
