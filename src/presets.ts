@@ -1,4 +1,4 @@
-import { hasUnocss } from "./env";
+import { hasReact, hasUnocss } from "./env";
 import {
   comments,
   ignores,
@@ -6,6 +6,7 @@ import {
   javascript,
   jsonc,
   markdown,
+  next,
   node,
   prettier,
   react,
@@ -57,13 +58,16 @@ export function wearzdk(
     prettier: enablePrettier = true,
     markdown: enableMarkdown = true,
     unocss: enableUnocss = hasUnocss,
-    react: enableReact = true,
+    react: enableReact = hasReact,
+    // next: enableNext = hasNext,
+    next: enableNext = false, // experimental
   }: Partial<{
     prettier: boolean;
     markdown: boolean;
     unocss: boolean;
     sortKeys: boolean;
     react: boolean;
+    next: boolean;
   }> = {},
 ): FlatESLintConfigItem[] {
   const configs = [...presetBasic, ...yml, ...presetJsonc];
@@ -78,6 +82,9 @@ export function wearzdk(
   }
   if (enableReact) {
     configs.push(...react);
+  }
+  if (enableNext) {
+    configs.push(...next);
   }
   if (Object.keys(config).length > 0) {
     configs.push(...(Array.isArray(config) ? config : [config]));

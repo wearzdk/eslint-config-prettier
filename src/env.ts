@@ -9,3 +9,9 @@ export const hasUnocss =
   isPackageExists("unocss") ||
   isPackageExists("@unocss/webpack") ||
   isPackageExists("@unocss/nuxt");
+
+export const hasReact =
+  isPackageExists("react") || isPackageExists("react-dom");
+
+export const hasNext =
+  isPackageExists("next") || isPackageExists("next-compose-plugins");

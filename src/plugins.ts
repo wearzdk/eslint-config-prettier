@@ -55,5 +55,8 @@ export const pluginReactHooks = interopDefault(_pluginReactHooks);
 import * as _pluginReactRefresh from "eslint-plugin-react-refresh";
 export const pluginReactRefresh = interopDefault(_pluginReactRefresh);
 
+import nextPlugin from "@next/eslint-plugin-next";
+export { nextPlugin as pluginNext };
+
 export * as parserYml from "yaml-eslint-parser";
 export * as parserJsonc from "jsonc-eslint-parser";
