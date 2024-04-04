@@ -7,8 +7,6 @@ const { wearzdk } = require("./src/index.ts");
 export default wearzdk([
   {
     files: ["src/**/*.ts"],
-    rules: {
-      "sort-keys/sort-keys-fix": "error",
-    },
+    rules: {},
   },
 ]);

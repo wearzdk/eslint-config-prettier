@@ -62,7 +62,7 @@ export const sortPackageJson: FlatESLintConfigItem[] = [
         },
         {
           order: { type: "asc" },
-          pathPattern: "^(?:dev|peer|optional|bundled)?[Dd]ependencies$",
+          pathPattern: "^(?:dev|peer|optional|bundled)?[Dd]ependencies(Meta)?$",
         },
         {
           order: ["types", "require", "import", "default"],
@@ -70,11 +70,7 @@ export const sortPackageJson: FlatESLintConfigItem[] = [
         },
         {
           order: { type: "asc" },
-          pathPattern: "^resolutions$",
-        },
-        {
-          order: { type: "asc" },
-          pathPattern: "^pnpm.overrides$",
+          pathPattern: "^(?:resolutions|overrides|pnpm.overrides)$",
         },
       ],
     },

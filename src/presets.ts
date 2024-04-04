@@ -6,6 +6,7 @@ import {
   javascript,
   jsonc,
   markdown,
+  node,
   prettier,
   react,
   sortKeys,
@@ -24,29 +25,37 @@ export const presetJavaScript = [
   ...comments,
   ...imports,
   ...unicorn,
+  ...node,
 ];
 
+/** Includes basic json(c) file support and sorting json keys */
 export const presetJsonc = [...jsonc, ...sortPackageJson, ...sortTsconfig];
+/** Includes markdown, yaml + `presetJsonc` support */
 export const presetLangsExtensions = [...markdown, ...yml, ...presetJsonc];
-
-export const basic = [...presetJavaScript, ...typescript];
-export { basic as presetBasic };
-
-export const all = [
-  ...basic,
+/** Includes `presetJavaScript` and typescript support */
+export const presetBasic = [...presetJavaScript, ...typescript, ...sortKeys];
+/**
+ * Includes
+ * - `presetBasic` (JS+TS) support
+ * - `presetLangsExtensions` (markdown, yaml, jsonc) support
+ * - Vue support
+ * - UnoCSS support (`uno.config.ts` is required)
+ * - Prettier support
+ */
+export const presetAll = [
+  ...presetBasic,
   ...presetLangsExtensions,
-  ...sortKeys,
   ...unocss,
   ...prettier,
   ...react,
 ];
+export { presetBasic as basic, presetAll as all };
 
 export function wearzdk(
   config: FlatESLintConfigItem | FlatESLintConfigItem[] = [],
   {
     prettier: enablePrettier = true,
     markdown: enableMarkdown = true,
-    sortKeys: enableSortKeys = true,
     unocss: enableUnocss = hasUnocss,
     react: enableReact = true,
   }: Partial<{
@@ -57,10 +66,7 @@ export function wearzdk(
     react: boolean;
   }> = {},
 ): FlatESLintConfigItem[] {
-  const configs = [...basic, ...yml, ...presetJsonc];
-  if (enableSortKeys) {
-    configs.push(...sortKeys);
-  }
+  const configs = [...presetBasic, ...yml, ...presetJsonc];
   if (enableMarkdown) {
     configs.push(...markdown);
   }
